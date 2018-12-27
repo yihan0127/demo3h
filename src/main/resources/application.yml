@@ -4,8 +4,8 @@ server:
 spring:
 #thymeleaf模板配置
   thymeleaf:
-    prefix: .html
-    suffix: classpath:/templates/
+    prefix: classpath:/templates/
+    suffix: .html
     encoding: UTF-8
     mode: HTML5
     cache: false
@@ -16,7 +16,7 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/userinfos?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/yylife?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
 #redis配置
   redis:
     host: 127.0.0.1

@@ -3,24 +3,20 @@ package com.example.demo3h.controller;
 import com.example.demo3h.model.TbUserInfo;
 import com.example.demo3h.service.Impl.TbUserInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 @Controller
 public class UserController {
+
     @Autowired
     private TbUserInfoServiceImpl tbUserInfoServiceImpl;
 
     @RequestMapping("/demo")
-    public  String demo(Model model){
-        List<TbUserInfo> list =tbUserInfoServiceImpl.findAll();
-        model.addAttribute("list",list);
-        return  "/index";
+    public  String demo(){
+
+        return  "index";
     }
     @RequestMapping("/del")
     public  String delete(int id){

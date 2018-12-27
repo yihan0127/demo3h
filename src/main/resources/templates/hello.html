@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type"  />
+    <title>hello word</title>
+</head>
+<body>
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+<div align="center">
+<h1>Spring boot</h1>
+</div>
+<table border="1px" align="center" cellspacing="0" >
+    <tr>
+        <td>账号</td>
+        <td>密码</td>
+        <td>邮箱</td>
+        <td>时间</td>
+        <td>操作</td>
+        <td><a th:href="@{star}">搜索</a></td>
+    </tr>
+    <tr th:each="demo:${list}">
+        <td th:text="${demo.userAccount}"></td>
+        <td th:text="${demo.password}"></td>
+        <td th:text="${demo.email}"></td>
+        <td th:text="${demo.createDate}"></td>
+        <td><a th:href="@{del(id=${demo.userid})}">删除/</a><a th:href="@{insert}">添加/</a><a th:href="@{findById(id=${demo.userid})}">修改</a></td>
+    </tr>
+</table>
+</body>
+</html>
