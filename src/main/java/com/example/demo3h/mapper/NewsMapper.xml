@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.NewsMapper" >
+  <resultMap id="BaseResultMap" type="model.News" >
+    <id column="newsid" property="newsid" jdbcType="INTEGER" />
+    <result column="receiveuid" property="receiveuid" jdbcType="INTEGER" />
+    <result column="senduid" property="senduid" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    newsid, receiveuid, senduid, content, status, createtime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from news
+    where newsid = #{newsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from news
+    where newsid = #{newsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.News" >
+    insert into news (newsid, receiveuid, senduid, 
+      content, status, createtime
+      )
+    values (#{newsid,jdbcType=INTEGER}, #{receiveuid,jdbcType=INTEGER}, #{senduid,jdbcType=INTEGER}, 
+      #{content,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.News" >
+    insert into news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="newsid != null" >
+        newsid,
+      </if>
+      <if test="receiveuid != null" >
+        receiveuid,
+      </if>
+      <if test="senduid != null" >
+        senduid,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="newsid != null" >
+        #{newsid,jdbcType=INTEGER},
+      </if>
+      <if test="receiveuid != null" >
+        #{receiveuid,jdbcType=INTEGER},
+      </if>
+      <if test="senduid != null" >
+        #{senduid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.News" >
+    update news
+    <set >
+      <if test="receiveuid != null" >
+        receiveuid = #{receiveuid,jdbcType=INTEGER},
+      </if>
+      <if test="senduid != null" >
+        senduid = #{senduid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where newsid = #{newsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.News" >
+    update news
+    set receiveuid = #{receiveuid,jdbcType=INTEGER},
+      senduid = #{senduid,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where newsid = #{newsid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.PutresumeMapper" >
+  <resultMap id="BaseResultMap" type="model.Putresume" >
+    <id column="putresumeId" property="putresumeid" jdbcType="INTEGER" />
+    <result column="resumeId" property="resumeid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    putresumeId, resumeId, uid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from putresume
+    where putresumeId = #{putresumeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from putresume
+    where putresumeId = #{putresumeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.Putresume" >
+    insert into putresume (putresumeId, resumeId, uid
+      )
+    values (#{putresumeid,jdbcType=INTEGER}, #{resumeid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.Putresume" >
+    insert into putresume
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="putresumeid != null" >
+        putresumeId,
+      </if>
+      <if test="resumeid != null" >
+        resumeId,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="putresumeid != null" >
+        #{putresumeid,jdbcType=INTEGER},
+      </if>
+      <if test="resumeid != null" >
+        #{resumeid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Putresume" >
+    update putresume
+    <set >
+      <if test="resumeid != null" >
+        resumeId = #{resumeid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where putresumeId = #{putresumeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Putresume" >
+    update putresume
+    set resumeId = #{resumeid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER}
+    where putresumeId = #{putresumeid,jdbcType=INTEGER}
+  </update>
+</mapper>

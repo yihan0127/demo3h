@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.RecruitTypeMapper" >
+  <resultMap id="BaseResultMap" type="model.RecruitType" >
+    <id column="rtid" property="rtid" jdbcType="INTEGER" />
+    <result column="rtname" property="rtname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rtid, rtname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from recruit_type
+    where rtid = #{rtid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from recruit_type
+    where rtid = #{rtid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.RecruitType" >
+    insert into recruit_type (rtid, rtname)
+    values (#{rtid,jdbcType=INTEGER}, #{rtname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="model.RecruitType" >
+    insert into recruit_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rtid != null" >
+        rtid,
+      </if>
+      <if test="rtname != null" >
+        rtname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rtid != null" >
+        #{rtid,jdbcType=INTEGER},
+      </if>
+      <if test="rtname != null" >
+        #{rtname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.RecruitType" >
+    update recruit_type
+    <set >
+      <if test="rtname != null" >
+        rtname = #{rtname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rtid = #{rtid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.RecruitType" >
+    update recruit_type
+    set rtname = #{rtname,jdbcType=VARCHAR}
+    where rtid = #{rtid,jdbcType=INTEGER}
+  </update>
+</mapper>

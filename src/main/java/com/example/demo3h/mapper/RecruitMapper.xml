@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.RecruitMapper" >
+  <resultMap id="BaseResultMap" type="model.Recruit" >
+    <id column="recruitId" property="recruitid" jdbcType="INTEGER" />
+    <result column="rtid" property="rtid" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="experience" property="experience" jdbcType="VARCHAR" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="DATE" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="jtId" property="jtid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recruitId, rtid, price, address, experience, job, createtime, remarks, education, 
+    phone, jtId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from recruit
+    where recruitId = #{recruitid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from recruit
+    where recruitId = #{recruitid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.Recruit" >
+    insert into recruit (recruitId, rtid, price, 
+      address, experience, job, 
+      createtime, remarks, education, 
+      phone, jtId)
+    values (#{recruitid,jdbcType=INTEGER}, #{rtid,jdbcType=INTEGER}, #{price,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{experience,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{jtid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Recruit" >
+    insert into recruit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recruitid != null" >
+        recruitId,
+      </if>
+      <if test="rtid != null" >
+        rtid,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="experience != null" >
+        experience,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="education != null" >
+        education,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="jtid != null" >
+        jtId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recruitid != null" >
+        #{recruitid,jdbcType=INTEGER},
+      </if>
+      <if test="rtid != null" >
+        #{rtid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null" >
+        #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="jtid != null" >
+        #{jtid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Recruit" >
+    update recruit
+    <set >
+      <if test="rtid != null" >
+        rtid = #{rtid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null" >
+        experience = #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="jtid != null" >
+        jtId = #{jtid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where recruitId = #{recruitid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Recruit" >
+    update recruit
+    set rtid = #{rtid,jdbcType=INTEGER},
+      price = #{price,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      experience = #{experience,jdbcType=VARCHAR},
+      job = #{job,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      jtId = #{jtid,jdbcType=INTEGER}
+    where recruitId = #{recruitid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ProductdealMapper" >
+  <resultMap id="BaseResultMap" type="model.Productdeal" >
+    <id column="productdealId" property="productdealid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="proId" property="proid" jdbcType="INTEGER" />
+    <result column="dealTime" property="dealtime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    productdealId, uid, proId, dealTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from productdeal
+    where productdealId = #{productdealid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from productdeal
+    where productdealId = #{productdealid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.Productdeal" >
+    insert into productdeal (productdealId, uid, proId, 
+      dealTime)
+    values (#{productdealid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{proid,jdbcType=INTEGER}, 
+      #{dealtime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Productdeal" >
+    insert into productdeal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productdealid != null" >
+        productdealId,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="proid != null" >
+        proId,
+      </if>
+      <if test="dealtime != null" >
+        dealTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productdealid != null" >
+        #{productdealid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="proid != null" >
+        #{proid,jdbcType=INTEGER},
+      </if>
+      <if test="dealtime != null" >
+        #{dealtime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Productdeal" >
+    update productdeal
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="proid != null" >
+        proId = #{proid,jdbcType=INTEGER},
+      </if>
+      <if test="dealtime != null" >
+        dealTime = #{dealtime,jdbcType=DATE},
+      </if>
+    </set>
+    where productdealId = #{productdealid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Productdeal" >
+    update productdeal
+    set uid = #{uid,jdbcType=INTEGER},
+      proId = #{proid,jdbcType=INTEGER},
+      dealTime = #{dealtime,jdbcType=DATE}
+    where productdealId = #{productdealid,jdbcType=INTEGER}
+  </update>
+</mapper>
