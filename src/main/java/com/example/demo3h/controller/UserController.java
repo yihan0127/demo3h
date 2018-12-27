@@ -1,6 +1,5 @@
 package com.example.demo3h.controller;
 
-import com.example.demo3h.model.JsonResult;
 import com.example.demo3h.model.TbUserInfo;
 import com.example.demo3h.service.Impl.TbUserInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
