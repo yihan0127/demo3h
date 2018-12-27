@@ -16,19 +16,6 @@ public class UserController {
     @Autowired
     private TbUserInfoServiceImpl tbUserInfoServiceImpl;
 
-    @RequestMapping(value = "/show",method = RequestMethod.GET)
-    public ResponseEntity<JsonResult> getUserList(){
-     JsonResult  r = new JsonResult();
-     try {
-         List<TbUserInfo> userList  = tbUserInfoServiceImpl.findAll();
-         r.setResult(userList);
-         r.setStatus("ok");
-     }catch (Exception e){
-         r.setResult(e.getClass().getName()+":"+e.getMessage());
-          r.setStatus("error");
-     }
-        return ResponseEntity.ok(r);
-    }
     @RequestMapping("/demo")
     public  String demo(Model model){
         List<TbUserInfo> list =tbUserInfoServiceImpl.findAll();
