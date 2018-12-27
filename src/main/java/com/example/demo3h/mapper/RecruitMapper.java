@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.Recruit;
+import com.example.demo3h.model.Recruit;
 
 public interface RecruitMapper {
     int deleteByPrimaryKey(Integer recruitid);

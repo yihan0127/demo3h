@@ -1,4 +1,4 @@
-package model;
+package com.example.demo3h.model;
 
 public class RecruitType {
     private Integer rtid;

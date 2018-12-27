@@ -1,4 +1,4 @@
-package model;
+package com.example.demo3h.model;
 
 public class Resume {
     private Integer resumeid;

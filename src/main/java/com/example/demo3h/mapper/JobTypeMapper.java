@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.JobType;
+import com.example.demo3h.model.JobType;
 
 public interface JobTypeMapper {
     int deleteByPrimaryKey(Integer jtid);

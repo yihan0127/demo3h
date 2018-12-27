@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.RolePower;
+import com.example.demo3h.model.RolePower;
 
 public interface RolePowerMapper {
     int deleteByPrimaryKey(Integer id);

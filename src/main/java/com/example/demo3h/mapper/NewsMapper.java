@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.News;
+import com.example.demo3h.model.News;
 
 public interface NewsMapper {
     int deleteByPrimaryKey(Integer newsid);

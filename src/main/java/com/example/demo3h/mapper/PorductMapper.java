@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.Porduct;
+import com.example.demo3h.model.Porduct;
 
 public interface PorductMapper {
     int deleteByPrimaryKey(Integer proid);

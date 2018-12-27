@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.Power;
+import com.example.demo3h.model.Power;
 
 public interface PowerMapper {
     int deleteByPrimaryKey(Integer powerid);

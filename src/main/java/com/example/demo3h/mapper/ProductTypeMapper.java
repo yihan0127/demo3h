@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.ProductType;
+import com.example.demo3h.model.ProductType;
 
 public interface ProductTypeMapper {
     int deleteByPrimaryKey(Integer ptid);

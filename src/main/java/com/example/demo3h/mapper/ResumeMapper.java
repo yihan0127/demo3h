@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.Resume;
+import com.example.demo3h.model.Resume;
 
 public interface ResumeMapper {
     int deleteByPrimaryKey(Integer resumeid);

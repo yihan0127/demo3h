@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.Putresume;
+import com.example.demo3h.model.Putresume;
 
 public interface PutresumeMapper {
     int deleteByPrimaryKey(Integer putresumeid);

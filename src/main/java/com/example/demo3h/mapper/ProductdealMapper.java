@@ -1,6 +1,6 @@
-package mapper;
+package com.example.demo3h.mapper;
 
-import model.Productdeal;
+import com.example.demo3h.model.Productdeal;
 
 public interface ProductdealMapper {
     int deleteByPrimaryKey(Integer productdealid);
