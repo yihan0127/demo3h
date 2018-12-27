@@ -11,7 +11,8 @@ spring:
     cache: false
     servlet:
       content-type: text/html
-#数据库配置
+    check-template-location: true
+  #数据库配置
   datasource:
     username: root
     password: 1234

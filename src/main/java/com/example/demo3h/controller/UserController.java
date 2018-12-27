@@ -13,11 +13,11 @@ public class UserController {
     @Autowired
     private TbUserInfoServiceImpl tbUserInfoServiceImpl;
 
-    @RequestMapping("/demo")
-    public  String demo(){
-
-        return  "index";
-    }
+//    @RequestMapping("/demo")
+//    public  String demo(){
+//
+//        return  "index";
+//    }
     @RequestMapping("/del")
     public  String delete(int id){
          int count=tbUserInfoServiceImpl.del(id);

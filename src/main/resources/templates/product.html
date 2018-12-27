@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
 <title>Product</title>
 <meta charset="utf-8">
@@ -15,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
 </head>
 <body>
-
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
 <div class="super_container">
 
 	<!-- Header -->
@@ -282,8 +283,8 @@
 				<div class="breadcrumbs">
 					<ul class="d-flex flex-row align-items-center justify-content-start">
 						<li><a href="index.html">Home</a></li>
-						<li><a href="categories.html">Woman</a></li>
-						<li><a href="categories.html">Accessories</a></li>
+						<li><a href="part.html">Woman</a></li>
+						<li><a href="part.html">Accessories</a></li>
 						<li>Shoulder Bag</li>
 					</ul>
 				</div>
@@ -377,7 +378,7 @@
 										</div>
 									</div>
 									<button class="cart_button trans_200">add to cart</button>
-									<div class="similar_products_button trans_200"><a href="categories.html">see similar products</a></div>
+									<div class="similar_products_button trans_200"><a href="part.html">see similar products</a></div>
 								</form>
 								<div class="product_links">
 									<ul class="text-center">
