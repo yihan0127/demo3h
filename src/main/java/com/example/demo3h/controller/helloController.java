@@ -15,22 +15,7 @@ public class helloController {
 
         return "index";
     }
-    /**
-     * 兼职界面
-     * */
-    @RequestMapping("/part")
-    public  String part(){
 
-        return "part";
-    }
-    /**
-     * 全职界面
-     * */
-    @RequestMapping("/full")
-    public  String full(){
-
-        return "full";
-    }
     /**
      * 二手市场界面
      * */
